@@ -8,6 +8,7 @@
     "require": "./snap.cjs"
   },
   "scripts": {
+    "lint:fix": "standard --fix | snazzy",
     "test": "standard | snazzy && borp --concurrency 1 --coverage"
   },
   "keywords": [
@@ -20,6 +21,7 @@
   "author": "Matteo Collina <hello@matteocollina.com>",
   "license": "MIT",
   "devDependencies": {
+    "@mateonunez/modulo": "^0.2.0",
     "borp": "^0.4.2",
     "desm": "^1.3.0",
     "glob": "^10.3.10",
