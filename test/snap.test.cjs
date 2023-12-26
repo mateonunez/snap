@@ -6,12 +6,10 @@ const { rm, mkdtemp } = require('node:fs/promises')
 const { glob } = require('glob')
 const { dirname, join } = require('node:path')
 const Snap = require('../snap.cjs')
-let check
-require('./helper.cjs').then((mod) => {
-  check = mod.check
-})
+const helper = require('./helper.cjs')
 
 test('update and read', async (t) => {
+  const { check } = await helper
   const cwd = await mkdtemp('snap-test-')
 
   await t.test('update', async () => {
@@ -28,6 +26,7 @@ test('update and read', async (t) => {
 })
 
 test('update and read in top folder', async (t) => {
+  const { check } = await helper
   await t.test('update', async () => {
     const snap = await Snap(__filename, { update: true })
     await check(snap)
