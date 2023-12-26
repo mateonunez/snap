@@ -9,7 +9,7 @@ const Snap = require('../snap.cjs')
 const helper = require('./helper.cjs')
 
 test('update and read', async (t) => {
-  const { check } = await helper
+  const { check } = await helper()
   const cwd = await mkdtemp('snap-test-')
 
   await t.test('update', async () => {
@@ -26,7 +26,7 @@ test('update and read', async (t) => {
 })
 
 test('update and read in top folder', async (t) => {
-  const { check } = await helper
+  const { check } = await helper()
   await t.test('update', async () => {
     const snap = await Snap(__filename, { update: true })
     await check(snap)

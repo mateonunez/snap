@@ -1,5 +1,3 @@
 const Modulo = require('@mateonunez/modulo')
-module.exports = (async () => {
-  const helper = await Modulo({ path: 'test/helper.js' })()
-  return helper
-})()
+const helper = Modulo({ path: 'test/helper.js' })
+module.exports = helper
